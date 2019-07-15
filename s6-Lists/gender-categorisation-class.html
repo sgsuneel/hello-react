@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Gender Classification using Classes</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+    class FamilyList extends React.Component {
+        
+        render() {
+            
+            // use map method on siblings to return a div for each name properly
+            var siblingsList = this.props.siblings.map(function(person){
+            return <div key={person.id}>{person.name}</div>
+            })
+
+            // Filter the props for girl siblings
+            var girlsOnly = this.props.siblings.filter(function(person){
+                return person.gender === 'female'
+            }).map(function(person){
+                return <div key={person.id}>{person.name}</div>
+            })
+
+            return(
+                <div>
+                    <div>
+                        <h2>List of all siblings</h2>
+                        {siblingsList}
+                    </div>
+                <hr />
+                    <div>
+                        <h2>List of Girls</h2>
+                        {girlsOnly}
+                    </div>
+                <hr />
+                    <div>
+                        <h2>List of Boys</h2>
+                        {this.props.siblings.filter(function(person){
+                            return person.gender === 'male'
+                        }).map(function(person){
+                            return <div key={person.id}>{person.name}</div>
+                        })}
+                    </div>
+                </div>    
+            )
+        }
+    }
+    var findKids = [
+        {
+            id:1,
+            name:'Chris',
+            gender: 'male'
+        },
+        {
+            id:2,
+            name:'Alex',
+            gender: 'male'
+        },
+        {
+            id:3,
+            name: 'Alexa',
+            gender: 'female'
+        },
+        {
+            id:4,
+            name: 'Emma',
+            gender: 'female'
+        }
+    ]
+    ReactDOM.render(
+      <FamilyList
+        siblings={findKids}
+      />,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Map is a higher ordewr function. That is, maps take functions as argument.
+
+        Creates a new array with results of calling a provided function on every 
+        element of the array
+     -->
+    <script>
+        var forecast = [
+            {day:'Sunday', sun:true, humidity: 10},
+            {day:'Monday', sun:false, humidity: 100},
+            {day:'Tuesday', sun:false, humidity: 150},
+            {day:'Wednesday', sun: true, humidity: 90},
+            {day:'Thursday', sun:true, humidity: 25},
+            {day:'Friday', sun:false, humidity: 106},
+            {day:'Saturday', sun:true, humidity: 120},
+        ]
+
+        // using for loop
+        var humid = []
+        for(var i=0;i<forecast.length;i++) {
+            humid.push(forecast[i].humidity)
+        }
+
+        // console.log(humid)
+
+        // using higher order function - map()
+        var humidDays = forecast.map(function(hums) {
+            return hums.humidity // put > 70 at the end to get boolean results
+        })
+
+        // console.log(humidDays)
+
+        // METHOD CHAINING
+        var numbers = [5,10,15,20,25,30]
+
+        var triples = numbers.map(function(trips) {
+            return trips*3
+        }).map(function(trips) {
+            return trips+1
+        })
+
+        // console.log(triples)
+
+        var greetings = ['hello','hola','rollup','wassup','das vidaniya']
+
+        var shout = greetings.map(function(greets) {
+            return greets.toUpperCase()
+        })
+
+        // console.log(shout)
+
+        var lowerCaseGreets = shout.map(function(salutes) {
+            return salutes.toLowerCase()
+        })
+
+        console.log(lowerCaseGreets)
+
+        var firstShout = shout.shift()
+        console.log(firstShout)
+        console.log(shout)
+    </script>
+</body>
+</html>

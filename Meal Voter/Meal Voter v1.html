@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <title>Class Components Props</title>
+  </head>
+  <body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+      class DinnerVote extends React.Component {
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            // javascript object
+            votes: 0
+          };
+        }
+        add() {
+          this.setState({
+            votes: this.state.votes + 1
+          });
+        }
+        subtract() {
+          this.setState({
+            votes: this.state.votes - 1
+          });
+        }
+        render() {
+          let dinnerVoteStyle = {
+            display: "inline-block",
+            textAlign: "center",
+            margin: 20,
+            height: 500,
+            width: 300,
+            padding: 0,
+            backgroundColor: "#FFF",
+            WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+            filter: "drop-shadow(0px 0px 5px #555)"
+          };
+
+          let foodStyle = {
+            width: 200,
+            height: 200,
+            marginTop: 20
+          };
+          return (
+            <div style={dinnerVoteStyle}>
+              <img src={this.props.img} alt="food image" style={foodStyle} />
+              <h1>Dinner Time</h1>
+              <p>Vote here if you want it</p>
+              <button onClick={() => this.add()}>+1</button>
+              <p>Vote here if you do not want it</p>
+              <button onClick={() => this.subtract()}>-1</button>
+              <p>Total:{this.state.votes}</p>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(
+        <div>
+          <DinnerVote img="https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg" />
+          <DinnerVote img="https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg" />
+          <DinnerVote img="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg" />
+        </div>,
+
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Object Basics</title>
+</head>
+<body>
+    <H1>Creating object using</H1>
+    <ul>
+        <li>Literal notation</li>
+        <li>Bracket notation</li>
+        <li>Dot notation</li>
+    </ul>
+
+    <h2>Hit CTRL+SHIT+I and Go to console</h2>
+
+    <B>Literal Notation</B>
+    <br />
+     <!-- creating an object through LITERAL notation -->
+        var car = { <br />
+            make: 'Honda',<br />
+            year: '2020',<br />
+            owner: 'Suneel Mohan',<br />
+            type: 'Sports Utility Vehicle',<br />
+            wheels: 5,<br />
+            mileage: '30kmperlitre'<br />
+        }; 
+
+    <script>
+        // creating an object through LITERAL notation
+        var car = {
+            make: 'Honda',
+            year: '2020',
+            owner: 'Suneel Mohan',
+            type: 'Sports Utility Vehicle',
+            wheels: 5,
+            mileage: '30kmperlitre'
+        };   
+
+        console.log(car.type)
+        console.log(car.mileage)
+        // adding one more more KEY/VALUE PAIR - DOT notation
+        car.ontop = "multi carrier"
+        console.log(car.ontop)
+
+        // adding element - BRACKET NOTATION
+        car['maxspeed'] = '180kmph'
+        console.log(car.maxspeed)
+
+        // ANOTHER EXAMPLE
+        var snowman = {
+            isSnow: true,
+            Color: 'white',
+            madeOfSnowBalls: 3,
+            first_name: 'Frosty',
+            last_name: 'Lastman'
+        }
+
+        // console.log(snowman.isSnow)
+        // console.log(snowman.Color)
+        // console.log(snowman.madeOfSnowBalls)
+        // console.log(snowman.first_name)
+        // console.log(snowman.last_name)
+
+
+        // Build a house object
+        // 4 property values with dot notation and almost all data types
+        // 3 property values with bracket notation
+        var house = {}
+        house.area = '2500sft'
+        house.bedrooms = 4
+        house.bathrooms = 3.5 // indian style in one bathroom :D
+        house.digitized = true
+
+        console.log(house) // perfect
+
+        // now lets add through bracket notation
+        house['architechts'] = "Salarpuria Builders"
+        house['year of construction'] = 2024 // brackets accept spaces in keys
+        house['owners'] = 'Pallavi Suneel'
+        house['typeof'] = 'apartment' // typeof is reserved kw, but its accepted by JS because its in brackets
+        house['office'] = false 
+
+        console.log(house)
+    </script>
+</body>
+</html>
